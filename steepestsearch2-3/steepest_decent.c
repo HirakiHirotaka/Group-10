@@ -28,8 +28,9 @@ void usage(){
 double f(double x, double y) {
   double z;
 
-  /** 以下の式を編集して完成させよ(1) **/
-  z = x;
+//モデル式は z=x*cos(x)であるのでここに設定する．
+
+  z = x * cos(x);
 
   return( z );
 }
@@ -40,8 +41,12 @@ double f(double x, double y) {
 double pd_x(double x, double y) {
   double z_dx;
 
-  /** 以下の式を編集して完成させよ(2-1) **/
-  z_dx = 1;
+  /*
+   * z = x * cos(x)をxで微分すると
+   * z' = cos(x) - x *sin(x)になるのでここに設定
+   * **/
+
+  z_dx = cos(x) - x*sin(x);
 
   return( z_dx );
 }
@@ -52,7 +57,9 @@ double pd_x(double x, double y) {
 double pd_y(double x, double y) {
   double z_dy;
 
-  /** 以下の式を編集して完成させよ(2-2) **/
+  /*
+   * z = x * cos(x)では関係がないので0に設定しておく
+   * */
   z_dy = 0;
 
   return( z_dy );
