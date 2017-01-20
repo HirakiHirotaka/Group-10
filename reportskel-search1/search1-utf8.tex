@@ -1,0 +1,91 @@
+%\documentclass[a4paper,10pt]{jarticle}
+%\documentclass[]{jarticle}
+\documentclass[10pt]{jarticle}
+
+%\usepackage{graphicx}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{eclbkbox} %breakbox用
+
+%本文領域を広め（空白箇所マージン領域を小さめ）に設定
+\setlength{\textwidth}{179mm}
+\setlength{\textheight}{251mm}
+\setlength{\topmargin}{-2cm}
+\setlength{\oddsidemargin}{-1cm}
+\setlength{\evensidemargin}{-1cm}
+
+\begin{document}
+
+\title{情報工学実験IIレポート（探索アルゴリズム1）}
+\author{曜日＆グループ番号: 月曜日＆グループ0} %
+\date{実施日:2017年1月20日(金)、提出日:2017年2月0日}
+
+\maketitle
+
+\begin{abstract}
+この骨組み（テンプレート）を利用する際には、
+不要な箇所を削除した上で提出すること。
+例えばこの要旨やコメント文の殆どは
+「當間から学生へのコメント」であって、
+「課題に対するレポート（報告書）」ではない。
+
+このレポート（ファイル）は、「情報工学実験II・探索アルゴリズムその
+1\cite{info2-search1}」の実験レポートの骨組みを例示している。
+あくまでも例示であって、全てをこの通りに従う必要はないが、
+指示された項目を含めた上で、
+報告書として他者が読みやすいレポートとなるよう考慮すること。
+\end{abstract}
+
+\section*{グループメンバ}
+（補足：レベル毎に \underline{全員が協力して実施} した上で、レベル毎にレポートをまとめる担当者を決め、全体を一つのレポートとして整理すること。分担方法も自由である。）
+\begin{itemize}
+ \item 945734J 當間愛晃: 担当Level1.1, 1.2
+ \item 945700 hoge: 担当Level2.1, 2,2
+ \item 945700 hoge: 担当Level2.3, 3.1
+ \item 945700 hoge: 担当Level3.2
+\end{itemize}
+
+\section*{提出したレポート一式について}
+レポート一式は
+``\verb|shell:/net/home/teacher/tnal/2016-search1-mon/group0/|''
+にアップロードした。
+提出したファイルのディレクトリ構成は以下の通りである。
+
+\vspace{+0.5cm}
+（補足：必ず下記のように整理しろという指定ではない。
+自分たちでやりやすいようにLevel毎に整理しても構わない）
+\begin{breakbox}
+\begin{verbatim}
+./src/      # 作成したプログラム一式
+./report/   # レポート関係ファイル．図ファイルを含む．
+\end{verbatim}
+\end{breakbox}
+
+\newpage
+
+\section{Leve l1: 最適化とは}
+\input{level1.1}
+\input{level1.2}
+\input{level1.3}
+
+\newpage
+
+\section{Level 2: 最急降下法による最適化}
+\input{level2.0} %共通部分の結果及び考察
+\input{level2.1}
+\input{level2.2}
+\input{level2.3}
+
+\vspace{+1.0cm}
+（補足：参考文献は thebibliography 環境を使って列挙し、
+本文中で適切な箇所で引用するようにしましょう。
+例えば下記文献は、アブストラクトやLevel 4で引用しています）
+\begin{thebibliography}{99}
+\bibitem{info2-search1}
+情報工学実験2: 探索アルゴリズムその1（當間）\\
+\verb|http://www.eva.ie.u-ryukyu.ac.jp/~tnal/2016/info2/search1/|
+\bibitem{housingdata}
+Housing Data Set\\
+\verb|http://archive.ics.uci.edu/ml/datasets/Housing|
+\end{thebibliography}
+
+\end{document}
