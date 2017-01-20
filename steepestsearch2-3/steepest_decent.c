@@ -18,7 +18,7 @@ double pd_y(double x, double y);
 
 
 void usage(){
-  fprintf(stderr," Usage : prompt> ./a.out random-seed\n");
+  fprintf(stderr," Usage : prompt> ./a.out random-seed (alpha)\n");
   exit(0);
 }
 
@@ -78,9 +78,16 @@ int main(int argc, char **argv) {
      */
     int term_cond = 1000; /* 終了条件（繰り返し数） */
 
+    //デフォルトでは引数が1つであるが学習レートを引数で変更出来るようにする
+
     int seed;
-    if( argc != 2 ){
+    if( argc != 2 && argc != 3){
         usage();
+    }else if ( argc == 3){
+        seed = atoi(argv[1]);
+        srand(seed);
+        rand();
+        alpha = atof(argv[2]);
     }else{
         seed = atoi(argv[1]);
         srand(seed);
