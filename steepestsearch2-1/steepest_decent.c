@@ -26,36 +26,36 @@ void usage(){
  *    入力された x に対する z=f(x,y) の値を求め，返す．
  */
 double f(double x, double y) {
-  double z;
-
-  /** 以下の式を編集して完成させよ(1) **/
-  z = x;
-
-  return( z );
+    double z;
+    
+    /** 以下の式を編集して完成させよ(1) **/
+    z = x*x;
+    
+    return( z );
 }
 
 /* f(x,y)/dx
  *    z=f(x,y) の微分値(偏微分値)を求め，返す．
  */
 double pd_x(double x, double y) {
-  double z_dx;
-
-  /** 以下の式を編集して完成させよ(2-1) **/
-  z_dx = 1;
-
-  return( z_dx );
+    double z_dx;
+    
+    /** 以下の式を編集して完成させよ(2-1) **/
+    z_dx = 2*x;
+    
+    return( z_dx );
 }
 
 /* f(x,y)/dy
  *    z=f(x,y) の微分値(偏微分値)を求め，返す．
  */
 double pd_y(double x, double y) {
-  double z_dy;
-
-  /** 以下の式を編集して完成させよ(2-2) **/
-  z_dy = 0;
-
-  return( z_dy );
+    double z_dy;
+    
+    /** 以下の式を編集して完成させよ(2-2) **/
+    z_dy = 0;
+    
+    return( z_dy );
 }
 
 
