@@ -1,14 +1,14 @@
-\subsection{Level2.3: $y=x*cos(x)$ について}
-Level2.3では $y=x*cos(x)$ のモデルを最急降下法で求める.
+\subsection{Level2.3: $y=x*\cos(x)$ について}
+Level2.3では $y=x*\cos(x)$ のモデルを最急降下法で求める.
 最急降下法では微分した値をアルゴリズムで必要とする為まずはこのモデル式の微分を導出する．
 
 \begin{align}
-    y &= x * cos(x) \\
-    y' &= cos(x) - x * sin(x)
+    y &= x * \cos(x) \\
+    y' &= \cos(x) - x * \sin(x)
     \label{alig:xcos}
 \end{align}
 
-上記(\ref{alig:xcos})式で導出した微分値を利用してsteepest-decent.cを以下の様に変更した．
+上記 (\ref{alig:xcos})式で導出した微分値を利用してsteepest-decent.cを以下の様に変更した．
 
 \subsubsection{プログラムソース（変更部分）}
 \subsubsection{観察意図と観察方法}
