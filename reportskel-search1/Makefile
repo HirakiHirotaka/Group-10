@@ -1,12 +1,12 @@
 FILE = search1-utf8
 
 all:
-	platex $(FILE).tex
-	platex $(FILE).tex
+	uplatex $(FILE).tex
+	uplatex $(FILE).tex
 	dvipdfmx $(FILE).dvi
 tex:
-	platex $(FILE).tex
-	platex $(FILE).tex
+	uplatex $(FILE).tex
+	uplatex $(FILE).tex
 pdf: $(FILE).dvi
 	dvipdfmx $(FILE).dvi
 clean:
