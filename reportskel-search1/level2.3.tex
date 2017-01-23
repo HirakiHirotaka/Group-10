@@ -1,17 +1,26 @@
 \subsection{Level2.3: $y=x*\cos(x)$ について}
-Level2.3では $y=x*\cos(x)$ のモデルを最急降下法で求める.
+Level2.3では $y=x*\cos(x)$ を最急降下法で探索する.
 最急降下法では微分した値をアルゴリズムで必要とする為まずはこのモデル式の微分を導出する．
 
 \begin{align}
-    y &= x * \cos(x) \\
+    y &= x * \cos(x) \label{alig:cos}\\
     y' &= \cos(x) - x * \sin(x)
-    \label{alig:xcos}
+    \label{alig:xcosd}
 \end{align}
 
-上記 (\ref{alig:xcos})式で導出した微分値を利用してsteepest-decent.cを以下の様に変更した．
 
 \subsubsection{プログラムソース（変更部分）}
+
+上記 (\ref{alig:xcosd})式で導出した微分値を利用してsteepest-decent.cを以下の様に変更した．
+
+まず学習係数alphaを引数として変更できる用,argvのエラーメッセージを選択するif文を変更した．
+第二引数としてalphaを受取り,char型からdouble型への変換を行っている．
+
+
 \subsubsection{観察意図と観察方法}
+今回は学習係数が探索に影響をあたえる物が何かを決定づけるため,seedではなく初期値位置を固定した状態で探索を行った．
+探索にはシェルスクリプトを用いた．
+
 \subsubsection{実行結果}
 \subsubsection{考察}
 

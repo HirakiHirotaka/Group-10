@@ -4,8 +4,8 @@
 
 #define X_MAX 10.0    /* 定義域の最大値 */
 #define X_MIN -10.0   /* 定義域の最小値 */
-#define Y_MAX 10.0    /* 定義域の最大値 */
-#define Y_MIN -10.0   /* 定義域の最小値 */
+#define Y_MAX 10.0    /* 値域の最大値 */
+#define Y_MIN -10.0   /* 値域の最小値 */
 #define X_RANGE (fabs(X_MAX)+fabs(X_MIN))
 #define Y_RANGE (fabs(Y_MAX)+fabs(Y_MIN))
 #define SAME 0.0000001 /* 探索点の動作チェック */
