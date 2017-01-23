@@ -82,11 +82,11 @@ int main(int argc, char **argv) {
 
     int seed;
     if( argc != 2 && argc != 3){
-        usage();
+        usage();    //引数が1つもない or 3つ以上の場合はエラー
     }else if ( argc == 3){
         seed = atoi(argv[1]);
-        srand(seed);
-        rand();
+        srand(seed);    //引数が2つの場合は第一引数をseedに設定
+        rand();     //第二引数はdouble型に変換しalphaに設定
         alpha = atof(argv[2]);
     }else{
         seed = atoi(argv[1]);
