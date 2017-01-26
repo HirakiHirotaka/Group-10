@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.7-u1.21-160201-2.6 (utf8.uptex) (TeX Live 2016) (preloaded format=uplatex 2016.12.13)  26 JAN 2017 19:38
+This is e-upTeX, Version 3.14159265-p3.7-u1.21-160201-2.6 (utf8.uptex) (TeX Live 2016) (preloaded format=uplatex 2016.12.13)  26 JAN 2017 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -292,7 +292,7 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 17.
 ) (./level1.3.tex) [2] (./level2.0.tex) (./level2.1.tex) (./level2.2.tex) (./le
-vel2.3.tex) [3] [4]
+vel2.3.tex [3]) [4]
 (./search1-utf8.aux) ) 
 Here is how much of TeX's memory you used:
  2038 strings out of 493689
@@ -301,6 +301,6 @@ Here is how much of TeX's memory you used:
  5541 multiletter control sequences out of 15000+600000
  55454 words of font info for 82 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 27i,8n,22p,277b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,8n,22p,414b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on search1-utf8.dvi (4 pages, 8896 bytes).
+Output written on search1-utf8.dvi (4 pages, 9664 bytes).
