@@ -9,7 +9,30 @@
 \usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{here}
-\usepackage{listings}
+\usepackage{listings, jlisting}
+\lstset{%
+  language={c},%言語名前
+  basicstyle={\footnotesize\ttfamily},%ソースコードのフォント設定
+  identifierstyle={\small},
+  ndkeywordstyle={\small},
+  keywordstyle={\ttfamily},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,%行が長くなった際の改行の有無
+  xrightmargin=0zw,%右の余白の大きさ
+  xleftmargin=3zw,%左の余白の大きさ
+  numbers=left,%行番号表示場所
+  stepnumber=1,%行番号の増分
+  numbersep=1zw,%行番号と本文の間隔
+  numberstyle=\ttfamily,
+  frame=tRBl,
+  framesep=5pt,
+  commentstyle={\ttfamily},%コメントアウトのフォント設定
+  flexiblecolumns = true,
+  classoffset=1,
+  showstringspaces=false,
+  tabsize=4
+}
 
 %本文領域を広め（空白箇所マージン領域を小さめ）に設定
 \setlength{\textwidth}{179mm}
