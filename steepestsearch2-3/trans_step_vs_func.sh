@@ -28,8 +28,8 @@ cat $archive_file | cut -f2,4,6,8 -d" " > $data_file
 
 # 作図。
 gnuplot<<EOF
-set terminal svg
-set output "sim-$seed.svg"
+set terminal pdf
+set output "sim-$seed.pdf"
 set title "$fig_title"
 set xlabel "steps"
 set ylabel "f(x)"

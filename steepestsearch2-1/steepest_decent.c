@@ -62,7 +62,7 @@ double pd_y(double x, double y) {
 int main(int argc, char **argv) {
     double x,y,_x,_y;
     int    i;
-    double alpha = 0.1;
+    double alpha = 0.5;
     /** alpha: 学習レート
      * [課題] 正の範囲内で任意に設定し，それに伴う探索点の移動を観察せよ．
      * [option] alpha を固定にすることのメリット・デメリット、
@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
         srand(seed);
         rand();
     }
-
+    printf("alpha = %.2f\n",alpha);
     /* step1. 探索の初期位置を設定 */
     x = X_MIN + X_RANGE * (double)rand()/RAND_MAX;
     y = Y_MIN + Y_RANGE * (double)rand()/RAND_MAX;
