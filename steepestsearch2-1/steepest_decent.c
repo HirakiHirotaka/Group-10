@@ -26,43 +26,43 @@ void usage(){
  *    入力された x に対する z=f(x,y) の値を求め，返す．
  */
 double f(double x, double y) {
-  double z;
-
-  /** 以下の式を編集して完成させよ(1) **/
-  z = x;
-
-  return( z );
+    double z;
+    
+    /** 以下の式を編集して完成させよ(1) **/
+    z = x*x;
+    
+    return( z );
 }
 
 /* f(x,y)/dx
  *    z=f(x,y) の微分値(偏微分値)を求め，返す．
  */
 double pd_x(double x, double y) {
-  double z_dx;
-
-  /** 以下の式を編集して完成させよ(2-1) **/
-  z_dx = 1;
-
-  return( z_dx );
+    double z_dx;
+    
+    /** 以下の式を編集して完成させよ(2-1) **/
+    z_dx = 2*x;
+    
+    return( z_dx );
 }
 
 /* f(x,y)/dy
  *    z=f(x,y) の微分値(偏微分値)を求め，返す．
  */
 double pd_y(double x, double y) {
-  double z_dy;
-
-  /** 以下の式を編集して完成させよ(2-2) **/
-  z_dy = 0;
-
-  return( z_dy );
+    double z_dy;
+    
+    /** 以下の式を編集して完成させよ(2-2) **/
+    z_dy = 0;
+    
+    return( z_dy );
 }
 
 
 int main(int argc, char **argv) {
     double x,y,_x,_y;
     int    i;
-    double alpha = 0.1;
+    double alpha = 0.5;
     /** alpha: 学習レート
      * [課題] 正の範囲内で任意に設定し，それに伴う探索点の移動を観察せよ．
      * [option] alpha を固定にすることのメリット・デメリット、
@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
         srand(seed);
         rand();
     }
-
+    printf("alpha = %.2f\n",alpha);
     /* step1. 探索の初期位置を設定 */
     x = X_MIN + X_RANGE * (double)rand()/RAND_MAX;
     y = Y_MIN + Y_RANGE * (double)rand()/RAND_MAX;

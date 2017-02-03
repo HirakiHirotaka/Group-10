@@ -4,8 +4,8 @@
 
 #define X_MAX 10.0    /* 定義域の最大値 */
 #define X_MIN -10.0   /* 定義域の最小値 */
-#define Y_MAX 10.0    /* 定義域の最大値 */
-#define Y_MIN -10.0   /* 定義域の最小値 */
+#define Y_MAX 10.0    /* 値域の最大値 */
+#define Y_MIN -10.0   /* 値域の最小値 */
 #define X_RANGE (fabs(X_MAX)+fabs(X_MIN))
 #define Y_RANGE (fabs(Y_MAX)+fabs(Y_MIN))
 #define SAME 0.0000001 /* 探索点の動作チェック */
@@ -18,7 +18,7 @@ double pd_y(double x, double y);
 
 
 void usage(){
-  fprintf(stderr," Usage : prompt> ./a.out random-seed\n");
+  fprintf(stderr," Usage : prompt> ./a.out random-seed (alpha)\n");
   exit(0);
 }
 
@@ -28,8 +28,9 @@ void usage(){
 double f(double x, double y) {
   double z;
 
-  /** 以下の式を編集して完成させよ(1) **/
-  z = x;
+//モデル式は z=x*cos(x)であるのでここに設定する．
+
+  z = x * cos(x);
 
   return( z );
 }
@@ -40,8 +41,12 @@ double f(double x, double y) {
 double pd_x(double x, double y) {
   double z_dx;
 
-  /** 以下の式を編集して完成させよ(2-1) **/
-  z_dx = 1;
+  /*
+   * z = x * cos(x)をxで微分すると
+   * z' = cos(x) - x *sin(x)になるのでここに設定
+   * **/
+
+  z_dx = cos(x) - x*sin(x);
 
   return( z_dx );
 }
@@ -52,7 +57,9 @@ double pd_x(double x, double y) {
 double pd_y(double x, double y) {
   double z_dy;
 
-  /** 以下の式を編集して完成させよ(2-2) **/
+  /*
+   * z = x * cos(x)では関係がないので0に設定しておく
+   * */
   z_dy = 0;
 
   return( z_dy );
@@ -71,9 +78,16 @@ int main(int argc, char **argv) {
      */
     int term_cond = 1000; /* 終了条件（繰り返し数） */
 
+    //デフォルトでは引数が1つであるが学習レートを引数で変更出来るようにする
+
     int seed;
-    if( argc != 2 ){
-        usage();
+    if( argc != 2 && argc != 3){
+        usage();    //引数が1つもない or 3つ以上の場合はエラー
+    }else if ( argc == 3){
+        seed = atoi(argv[1]);
+        srand(seed);    //引数が2つの場合は第一引数をseedに設定
+        rand();     //第二引数はdouble型に変換しalphaに設定
+        alpha = atof(argv[2]);
     }else{
         seed = atoi(argv[1]);
         srand(seed);
