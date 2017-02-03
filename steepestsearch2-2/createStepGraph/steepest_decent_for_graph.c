@@ -65,8 +65,7 @@ double pd_y(double x, double y) {
 int main(int argc, char **argv) {
     double x,y,_x,_y;
     int    i;
-    double alpha = 0.1;
-//    double alpha = 0.5;
+    double alpha = 0.0;
     /** alpha: 学習レート
      * [課題] 正の範囲内で任意に設定し，それに伴う探索点の移動を観察せよ．
      * [option] alpha を固定にすることのメリット・デメリット、
@@ -76,10 +75,11 @@ int main(int argc, char **argv) {
     int term_cond = 1000; /* 終了条件（繰り返し数） */
 
     int seed;
-    if( argc != 2 ){
+    if( argc != 3 ){
         usage();
     }else{
         seed = atoi(argv[1]);
+		alpha = atof(argv[2]);
         srand(seed);
         rand();
     }
@@ -87,7 +87,7 @@ int main(int argc, char **argv) {
     /* step1. 探索の初期位置を設定 */
     x = X_MIN + X_RANGE * (double)rand()/RAND_MAX;
     y = Y_MIN + Y_RANGE * (double)rand()/RAND_MAX;
-    printf("step 0 x %.10f y %.10f f(x,y) %.10f %e\n", x,y,f(x,y),f(x,y));
+//    printf("step 0 x %.10f y %.10f f(x,y) %.10f %e\n", x,y,f(x,y),f(x,y));
 
     for (i = 1; i < term_cond; i++) {
         _x = x; _y = y;
@@ -106,14 +106,15 @@ int main(int argc, char **argv) {
         if( ((_x-SAME < x) && (x < _x+SAME)) &&
             ((_y-SAME < y) && (y < _y+SAME)) ){
             fflush(stdout);
-            fprintf(stderr,"FINISH 3 step %d x and y were not updated.\n",i);
+//           fprintf(stderr,"FINISH 3 step %d x and y were not updated.\n",i);
             break;
         }
-        printf("step %d x %.10f y %.10f f(x,y) %.10f %e\n",i,x,y,f(x,y),f(x,y));
+//        printf("step %d x %.10f y %.10f f(x,y) %.10f %e\n",i,x,y,f(x,y),f(x,y));
     }
+        printf("%f,%d\n",alpha,i);
     if( i >= term_cond ){
         fflush(stdout);
-        fprintf(stderr,"FINISH 1 step %d this trial couldn't be search enough under the term_cond=%d.\n",i,term_cond);
+//    fprintf(stderr,"FINISH 1 step %d this trial couldn't be search enough under the term_cond=%d.\n",i,term_cond);
     }
     return 0;
 }
