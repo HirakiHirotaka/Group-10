@@ -87,7 +87,7 @@ int main(int argc, char **argv) {
     /* step1. 探索の初期位置を設定 */
     x = X_MIN + X_RANGE * (double)rand()/RAND_MAX;
     y = Y_MIN + Y_RANGE * (double)rand()/RAND_MAX;
-    printf("step 0 x %.10f y %.10f f(x,y) %.10f %e\n", x,y,f(x,y),f(x,y));
+//    printf("step 0 x %.10f y %.10f f(x,y) %.10f %e\n", x,y,f(x,y),f(x,y));
 
     for (i = 1; i < term_cond; i++) {
         _x = x; _y = y;
@@ -99,22 +99,22 @@ int main(int argc, char **argv) {
         /* 終了条件2:定義域を外れた場合 */
         if( (x <= X_MIN) || (x >= X_MAX) || (y <= Y_MIN) || (y >= Y_MAX) ){
             fflush(stdout);
-            fprintf(stderr,"FINISH 2 step %d x_rearched_to %.10f y_reached_to %.10f f(x,y) %.10f\n",i,x,y,f(x,y));
+//            fprintf(stderr,"FINISH 2 step %d x_rearched_to %.10f y_reached_to %.10f f(x,y) %.10f\n",i,x,y,f(x,y));
             break;
         }
         /* 終了条件3:殆ど探索点が動いていない場合 */
         if( ((_x-SAME < x) && (x < _x+SAME)) &&
             ((_y-SAME < y) && (y < _y+SAME)) ){
             fflush(stdout);
-           fprintf(stderr,"FINISH 3 step %d x and y were not updated.\n",i);
+//           fprintf(stderr,"FINISH 3 step %d x and y were not updated.\n",i);
             break;
         }
-        printf("step %d x %.10f y %.10f f(x,y) %.10f %e\n",i,x,y,f(x,y),f(x,y));
+//        printf("step %d x %.10f y %.10f f(x,y) %.10f %e\n",i,x,y,f(x,y),f(x,y));
     }
-        printf("%f,%d\n",alpha,i);
+        printf("%f,%.10f\n",alpha,(x+y));
     if( i >= term_cond ){
         fflush(stdout);
-    fprintf(stderr,"FINISH 1 step %d this trial couldn't be search enough under the term_cond=%d.\n",i,term_cond);
+//    fprintf(stderr,"FINISH 1 step %d this trial couldn't be search enough under the term_cond=%d.\n",i,term_cond);
     }
     return 0;
 }
