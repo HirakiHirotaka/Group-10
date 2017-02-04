@@ -1,0 +1,52 @@
+--- run_ave_alpha.sh	2017-02-03 18:08:58.000000000 +0900
++++ run_seed.sh	2017-02-03 21:01:49.000000000 +0900
+@@ -1,15 +1,15 @@
+ #!/bin/sh
+ set -e
+ 
+-# steepest_decentをAlpha(学習係数)を変更後,20回実行
++# steepest_decentをSeed変更後,20回実行
+ # 収束するのに要した平均探索回数を算出。
+ # FINISH2以外のものでも集計しているので,記録としての正確性にはやや疑問が残る
+ 
+ exec_file="./steepest_decent"
+-average_file="./average.txt"
+-result_file="./result.txt"
+-pdf_title="./alpha_ave.pdf"
+-seed=1000
++average_file="./seed_average.txt"
++result_file="./seed_result.txt"
++pdf_title="./seed_ave.pdf"
++Alpha=0.1
+ 
+ if [ -f $average_file ] ; then
+     rm $average_file
+@@ -31,7 +31,7 @@
+ done
+ #roops="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 "
+ sim=0
+-alpha=0.01
++seed=1000
+ 
+ for roop in ${roops[@]}
+ do
+@@ -39,16 +39,16 @@
+     $exec_file $seed $alpha > .archive-$seed
+     # シミュレーション結果から試行回数10回分を抜き出す。
+     tail -1 .archive-$seed | cut -f2 -d" " >> $average_file
+-    /bin/echo -n "$alpha `tail -1 $average_file`" >> $result_file
++    /bin/echo -n "$seed `tail -1 $average_file`" >> $result_file
+     #改行を挿入
+     /usr/bin/printf "\n" >>$result_file
+     #0.1ずつ足していく
+-    alpha=`echo "$alpha"|awk '{print $1 +0.1}'`
++    seed=`echo "$seed"|awk '{print $1 +1000}'`
+ done
+ 
+ gnuplot<<EOF
+ set term pdf
+-set xlabel "Alpha"
++set xlabel "Seed"
+ set ylabel "Step"
+ set output "${pdf_title}"
+ plot "${result_file}" w linespoints 

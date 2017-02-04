@@ -1,0 +1,34 @@
+--- run_ave_alpha.sh	2017-02-03 18:08:58.000000000 +0900
++++ trans_alpha.sh	2017-02-03 19:50:24.000000000 +0900
+@@ -29,19 +29,16 @@
+     i=`expr $i + 1`
+     roops[$i]=$i
+ done
+-#roops="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 "
+ sim=0
+ alpha=0.01
+ 
+ for roop in ${roops[@]}
+ do
+     sim=`expr $sim + 1`
+-    $exec_file $seed $alpha > .archive-$seed
+-    # シミュレーション結果から試行回数10回分を抜き出す。
+-    tail -1 .archive-$seed | cut -f2 -d" " >> $average_file
+-    /bin/echo -n "$alpha `tail -1 $average_file`" >> $result_file
+-    #改行を挿入
+-    /usr/bin/printf "\n" >>$result_file
++    $exec_file $seed $alpha > .archive-$sim
++    archive_file=.archive-$sim
++    data_file=.data-$alpha.txt
++    cat $archive_file | cut -f4,8 -d" " > $data_file
+     #0.1ずつ足していく
+     alpha=`echo "$alpha"|awk '{print $1 +0.1}'`
+ done
+@@ -51,6 +48,5 @@
+ set xlabel "Alpha"
+ set ylabel "Step"
+ set output "${pdf_title}"
+-plot "${result_file}" w linespoints 
++plot ".data-0.41.txt" w linespoints title "0.41",".data-0.51.txt" w linespoints title "0.51", ".data-0.61.txt" w linespoints title "0.61", ".data-1.71.txt" w linespoints title "1.71",".data-1.81.txt" w linespoints title "1.81",".data-1.91.txt" w linespoints title "1.91", x*cos(x) w linespoints
+ EOF
+-

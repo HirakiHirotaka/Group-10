@@ -1,0 +1,41 @@
+--- run_seed.sh	2017-02-03 21:01:49.000000000 +0900
++++ run_seed_seed.sh	2017-02-03 21:05:22.000000000 +0900
+@@ -6,9 +6,9 @@
+ # FINISH2以外のものでも集計しているので,記録としての正確性にはやや疑問が残る
+ 
+ exec_file="./steepest_decent"
+-average_file="./seed_average.txt"
+-result_file="./seed_result.txt"
+-pdf_title="./seed_ave.pdf"
++average_file="./see_seed_average.txt"
++result_file="./see_seed_result.txt"
++pdf_title="./see_seed_ave.pdf"
+ Alpha=0.1
+ 
+ if [ -f $average_file ] ; then
+@@ -24,14 +24,14 @@
+ 
+ i=0
+ 
+-while [ $i -lt 20 ]
++while [ $i -lt 40 ]
+ do
+     i=`expr $i + 1`
+     roops[$i]=$i
+ done
+ #roops="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 "
+ sim=0
+-seed=1000
++seed=11000
+ 
+ for roop in ${roops[@]}
+ do
+@@ -43,7 +43,7 @@
+     #改行を挿入
+     /usr/bin/printf "\n" >>$result_file
+     #0.1ずつ足していく
+-    seed=`echo "$seed"|awk '{print $1 +1000}'`
++    seed=`echo "$seed"|awk '{print $1 +500}'`
+ done
+ 
+ gnuplot<<EOF
